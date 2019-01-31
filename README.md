@@ -4,7 +4,7 @@ Hello world on lpc4330-xplorer board
 Connect UART pins as follows:
 
 | J8 header | UART-to-USB adapter |
-|---------------------------------|
+| --------- | ------------------- |
 |         9 |             UART RX |
 |        10 |             UART TX |
 

@@ -8,15 +8,7 @@ Connect UART pins as follows:
 |         9 |             UART RX |
 |        10 |             UART TX |
 
-### Build under Linux
-
-    $ export CROSS_COMPILE=arm-none-eabi-
-    $ git clone --recursive https://github.com/osfive/lpc4330-xplorer
-    $ cd lpc4330-xplorer
-    $ bmake
-
-### Build under FreeBSD
-
+### Build under Linux or FreeBSD
     $ setenv CROSS_COMPILE arm-none-eabi-
     $ git clone --recursive https://github.com/osfive/lpc4330-xplorer
     $ cd lpc4330-xplorer

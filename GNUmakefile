@@ -5,7 +5,9 @@ CC =		${CROSS_COMPILE}gcc
 LD =		${CROSS_COMPILE}ld
 OBJCOPY =	${CROSS_COMPILE}objcopy
 
-LDSCRIPT =	${.CURDIR}/ldscript
+OBJDIR =	obj
+
+LDSCRIPT =	${CURDIR}/ldscript
 
 OBJECTS =	main.o						\
 		osfive/sys/arm/nxp/lpc43xx_scu.o		\
@@ -18,7 +20,7 @@ OBJECTS =	main.o						\
 		osfive/sys/kern/kern_panic.o			\
 		start.o
 
-.include "osfive/lib/libc/Makefile.inc"
+include osfive/lib/libc/Makefile.inc
 
 LIBRARIES = LIBC XZ
 
@@ -29,8 +31,8 @@ CFLAGS =	-mthumb -mcpu=cortex-m4		\
 all:	compile link binary
 
 clean:
-	rm -f ${OBJECTS:M*} ${APP}.elf
+	rm -f ${OBJECTS} ${APP}.elf
 
-.include "osfive/mk/bsd.user.mk"
-.include "osfive/mk/bsd.compile.mk"
-.include "osfive/mk/bsd.link.mk"
+include osfive/mk/gnu.user.mk
+include osfive/mk/gnu.compile.mk
+include osfive/mk/gnu.link.mk

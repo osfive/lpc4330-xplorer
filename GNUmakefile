@@ -20,8 +20,6 @@ OBJECTS =	main.o						\
 		osfive/sys/kern/kern_panic.o			\
 		start.o
 
-include osfive/lib/libc/Makefile.inc
-
 LIBRARIES = LIBC
 
 CFLAGS =	-mthumb -mcpu=cortex-m4		\
@@ -33,6 +31,7 @@ all:	compile link binary
 clean:
 	rm -f ${OBJECTS} ${APP}.elf
 
+include osfive/lib/libc/Makefile.inc
 include osfive/mk/gnu.user.mk
 include osfive/mk/gnu.compile.mk
 include osfive/mk/gnu.link.mk

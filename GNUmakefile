@@ -22,7 +22,7 @@ OBJECTS =	main.o						\
 
 include osfive/lib/libc/Makefile.inc
 
-LIBRARIES = LIBC XZ
+LIBRARIES = LIBC
 
 CFLAGS =	-mthumb -mcpu=cortex-m4		\
 		-nostdlib -fno-builtin-printf	\

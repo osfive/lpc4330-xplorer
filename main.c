@@ -27,6 +27,7 @@
 #include <sys/cdefs.h>
 #include <sys/console.h>
 #include <sys/systm.h>
+#include <sys/thread.h>
 #include <sys/malloc.h>
 
 #include <machine/frame.h>
@@ -67,6 +68,10 @@ uart_putchar(int c, void *arg)
 void
 app_main(void)
 {
+
+	zero_bss();
+	relocate_data();
+	md_init();
 
 	lpc43xx_scu_init(&scu_sc, BASE_SCU, pins, SCU_NPINS);
 	lpc43xx_usart_init(&usart_sc, BASE_USART0, &bauds[0]);

@@ -21,6 +21,9 @@ SECTIONS
 		*(.rodata)
 	} > sram1
 
+	/* Ensure _smem is associated with the next section */
+	. = .;
+	_smem = ABSOLUTE(.);
 	.data : {
 		_sdata = ABSOLUTE(.);
 		*(.data)
